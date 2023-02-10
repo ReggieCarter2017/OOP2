@@ -24,4 +24,5 @@ public class Technique extends Product implements Interface {
     {
         this("Null", 0, "Null", 0);
     }
+
 }
