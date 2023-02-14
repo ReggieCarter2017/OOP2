@@ -11,17 +11,17 @@ public class Food extends Product implements Interface {
     }
     @Override
     public void showInfo() {
-        System.out.printf("Name: %s;\nPrice: %s;\nProduction: %s;\nBest before date: %s", getName(), getPrice(), getProduction(), getBBD());
+        System.out.printf("ID: %s;\nName: %s;\nPrice: %s;\nProduction: %s;\nBest before date: %s", getID(), getName(), getPrice(), getProduction(), getBBD());
     }
 
-    public Food(String name, Integer price, String production, Integer bbd)
+    public <T extends Number, V extends String> Food(T ID, V name, T price, V production, T bbd) // Изменен обычный конструктор на обобщенный
     {
-        super(name, price, production);
-        this.bbd = bbd;
+        super(ID, name, price, production);
+        this.bbd = bbd.intValue();
     }
 
     public Food()
     {
-        this("Null", 0, "Null", 0);
+        this(0, "Null", 0, "Null", 0);
     }
 }

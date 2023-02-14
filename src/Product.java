@@ -1,9 +1,19 @@
-public class Product {
-    protected Integer price;
+public class Product { // Сделал обычный класс обобщенным
+    protected Integer ID;
+    protected Double price;
     protected String name;
     protected String production;
 
-    public Integer getPrice() {
+    public Integer getID()
+    {
+        return ID;
+    }
+    void setID(Integer ID)
+    {
+        this.ID = ID;
+    }
+
+    public Double getPrice() {
         return price;
     }
     public String getName() {
@@ -12,7 +22,7 @@ public class Product {
     public String getProduction() {
         return production;
     }
-    public void setPrice(Integer a) {
+    public void setPrice(Double a) {
         this.price = a;
     }
     public void setName(String a) {
@@ -22,14 +32,17 @@ public class Product {
         this.production = a;
     }
 
-    public Product(String name, Integer price, String production)
+    public <T extends Number, V extends  String> Product(T ID, V name, T price, V production) // Изменен обычный конструктор на обобщенный
     {
+        this.ID = ID.intValue();
+        this.price = price.doubleValue();
         this.name = name;
         this.production = production;
-        this.price = price;
     }
-    public Product(){
-        this("Null", 0, "Null");
+
+    public Product()
+    {
+        this(0, "Name", 0, "None");
     }
 
 

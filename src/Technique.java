@@ -14,15 +14,15 @@ public class Technique extends Product implements Interface {
         System.out.printf("Name: %s;\nPrice: %s;\nProduction: %s;\nGuarantee period: %s", getName(), getPrice(), getProduction(), getGP());
     }
 
-    public Technique(String name, Integer price, String production, Integer gp)
+    public <T extends Number, V extends String> Technique(T ID, V name, T price, V production, T gp) // Изменен обычный конструктор на обобщенный
     {
-        super(name, price, production);
-        this.gp = gp;
+        super(ID, name, price, production);
+        this.gp = gp.intValue();
     }
 
     public Technique()
     {
-        this("Null", 0, "Null", 0);
+        this(0,"Null", 0, "Null", 0);
     }
 
 }
